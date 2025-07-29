@@ -111,11 +111,11 @@ export default function PlasmaWave({
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const uniformOffset = useRef(new Float32Array([xOffset, yOffset]));
   const uniformResolution = useRef(new Float32Array([1, 1]));
-  const rendererRef = useRef(null);
-  const fadeStartTime = useRef(null);
+  const rendererRef = useRef<Renderer | null>(null);
+  const fadeStartTime = useRef<number | null>(null);
   const lastTimeRef = useRef(0);
   const pausedTimeRef = useRef(0);
 
