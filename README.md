@@ -13,16 +13,19 @@ npm run dev
 ```
 
 ## Deployment
-This site is automatically deployed via GitHub Pages.
+This site is deployed on Vercel for optimal Next.js performance.
 
-### GitHub Pages Setup
-1. The site uses GitHub Actions for automatic deployment
-2. Static export is configured in `next.config.js`
-3. Deployment workflow is in `.github/workflows/deploy.yml`
-4. Site will be available at: https://richrz.github.io/landingsite/
+### Vercel Setup
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect Next.js and configure deployment
+3. Each push to master triggers automatic deployment
+4. Preview deployments are created for pull requests
 
-### Manual Build
+### Manual Deployment
 ```bash
 npm run build
+npm run start
 ```
-This creates a static export in the `out/` directory.
+
+### Environment Variables
+No environment variables required for this project.
