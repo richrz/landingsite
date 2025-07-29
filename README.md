@@ -13,19 +13,50 @@ npm run dev
 ```
 
 ## Deployment
-This site is deployed on Vercel for optimal Next.js performance.
 
-### Vercel Setup
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically detect Next.js and configure deployment
-3. Each push to master triggers automatic deployment
-4. Preview deployments are created for pull requests
+### VPS Deployment (Vultr)
 
-### Manual Deployment
+This site is configured for deployment to a Vultr VPS with Nginx.
+
+#### Prerequisites
+- Vultr VPS with Ubuntu/Debian
+- Nginx installed
+- Domain pointing to your VPS IP
+
+#### Deployment Steps
+
+1. **Build the site locally:**
+   ```bash
+   npm install
+   npm run build
+   ```
+
+2. **Upload files to your VPS:**
+   ```bash
+   # Replace with your VPS details
+   rsync -avz out/ user@your-vps-ip:/var/www/html/
+   ```
+
+3. **Configure Nginx:**
+   - Copy `nginx.conf` to `/etc/nginx/sites-available/yourdomain.com`
+   - Update the server_name in the config
+   - Enable the site: `sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/`
+   - Test config: `sudo nginx -t`
+   - Reload Nginx: `sudo systemctl reload nginx`
+
+4. **SSL Certificate (Optional):**
+   ```bash
+   sudo apt install certbot python3-certbot-nginx
+   sudo certbot --nginx -d yourdomain.com
+   ```
+
+#### Files Included
+- `deploy.sh` - Deployment script with instructions
+- `nginx.conf` - Nginx configuration template
+- `next.config.js` - Configured for static export
+
+### Local Build
 ```bash
 npm run build
 npm run start
 ```
-
-### Environment Variables
-No environment variables required for this project.
