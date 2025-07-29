@@ -13,4 +13,16 @@ npm run dev
 ```
 
 ## Deployment
-Automatically deployed via GitHub Pages 
+This site is automatically deployed via GitHub Pages.
+
+### GitHub Pages Setup
+1. The site uses GitHub Actions for automatic deployment
+2. Static export is configured in `next.config.js`
+3. Deployment workflow is in `.github/workflows/deploy.yml`
+4. Site will be available at: https://richrz.github.io/landingsite/
+
+### Manual Build
+```bash
+npm run build
+```
+This creates a static export in the `out/` directory.
